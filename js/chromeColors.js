@@ -16,3 +16,7 @@ window.onmessage=function(e){
     console.log('I got data in my chrome extenssion', e.data);
   }
 }
+
+var iframe = document.getElementById("meteorFrame");
+
+iframe.contendWindow.postMessage("hello there!", "http://localhost:3000/");
