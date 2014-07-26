@@ -19,4 +19,5 @@ window.onmessage=function(e){
 
 var iframe = document.getElementById("meteorFrame");
 
-iframe.contendWindow.postMessage("hello there!", "http://localhost:3000/");
+iframe.contentWindow.postMessage("hello there!", "*");
+console.log("sent messag")
