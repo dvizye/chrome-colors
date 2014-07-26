@@ -1,0 +1,11 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var link = document.getElementById('testButton');
+    // onClick's logic below:
+    link.addEventListener('click', click);
+});
+
+function click(e) {
+  chrome.tabs.executeScript(null,
+      {code:"getBgColors();"});
+  window.close();
+}

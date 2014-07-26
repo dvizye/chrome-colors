@@ -10,5 +10,9 @@
       "default_icon": "icon.png",
       "default_popup": "popup.html"
   },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["js/chromeColorsPageImport.js"]
+    }],
   "manifest_version": 2
 }
