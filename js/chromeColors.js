@@ -9,3 +9,10 @@ function click(e) {
       {code:"getBgColors();"});
   window.close();
 }
+
+window.onmessage=function(e){
+  console.log("Opened");
+  if (e.data) {
+    console.log('I got data in my chrome extenssion', e.data);
+  }
+}
