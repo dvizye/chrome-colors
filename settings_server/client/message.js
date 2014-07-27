@@ -103,10 +103,15 @@ colorList = function(args) {
 
 }
 
+url = function(args) {
+	console.log(args.url)
+}
+
 commands = {
 	"pageLoad":pageLoad,
 	"save":save,
 	"colorList":colorList,
+	"url":url,
 }
 
 

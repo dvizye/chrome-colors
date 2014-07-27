@@ -1,4 +1,4 @@
-var extensionId = 'fjeoglhhgfkgdfppmimkpakndocenpdd'
+var extensionId = 'edglniekklmjgfgoanioecobdgaogjdj'
 
 onload = function() {
 	postColorMessage = function (colorList) {
@@ -41,7 +41,7 @@ var getBgColors = function(){
     // Strip spaces from the color for succinctness
     bgColor = bgColor.replace(/ /g, '');
     fgColor = fgColor.replace(/ /g, '');
-    // If the color is not white or fully transparent...    
+    // If the color is not white or fully transparent...
     if (
       !(bgColor.indexOf('rgba') === 0 && bgColor.substr(-3) === ',0)')
     ) {

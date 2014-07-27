@@ -17,20 +17,22 @@
     </div>
   </nav><!-- /navbar -->
 
+  <!-- {{#each color}}
     <div class="form-group">
       <div class="input-group" style="margin-right: 15px; margin-left: 15px">
         <span class="input-group-addon" style="padding-left: 15px; padding-right: 15px"><div style="float:left">1</div></span>
-        <span class="input-group-addon" style="width: 190px; padding: 0; border: 0;"><div style="float:left"><input type="text" class="form-control" placeholder="Color 1" name="colorName"/></div></span>
-        <input type="text" class="form-control" placeholder="0000ff" style="text-align: center" name="textInput" disabled/>
-        <span class="input-group-addon"><div id="colorSelector"><div style="background-color: #0000ff; width: 20px; height:20px"></div></div></span>
+        <span class="input-group-addon" style="width: 190px; padding: 0; border: 0;"><div style="float:left"><input type="text" class="form-control" value={{name}} name="colorName"/></div></span>
+        <input type="text" class="form-control" placeholder={{hex}} style="text-align: center" name="textInput" disabled/>
+        <span class="input-group-addon"><div id="colorSelector"><div style="background-color: "{{hex}}"; width: 20px; height:20px"></div></div></span>
       </div>
     </div>
+  {{/each}} -->
 
     <div class="form-group">
       <div class="input-group" style="margin-right: 15px; margin-left: 15px">
-        <span class="input-group-addon" style="width: 20px"><div style="float:left">1</div></span>
-        <span class="input-group-addon" style="width: 130px; padding: 0; border: 0;"><div style="float:left"><input type="text" class="form-control" placeholder="Color 1" style="text-align: center" name="colorName"/></div></span>
-        <input type="text" class="form-control" placeholder="0000ff" style="text-align: center" name="textInput"/>
+        <span class="input-group-addon" style="padding-left: 15px; padding-right: 15px"><div style="float:left">1</div></span>
+        <span class="input-group-addon" style="width: 190px; padding: 0; border: 0;"><div style="float:left"><input type="text" class="form-control" value="color 1" name="colorName"/></div></span>
+        <input type="text" class="form-control" placeholder="0000ff" style="text-align: center" name="textInput" disabled/>
         <span class="input-group-addon"><div id="colorSelector"><div style="background-color: #0000ff; width: 20px; height:20px"></div></div></span>
       </div>
     </div>
