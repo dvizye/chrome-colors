@@ -40,5 +40,5 @@
 // }
 
 var extensionId = 'fjeoglhhgfkgdfppmimkpakndocenpdd'
-chrome.extension.sendMessage(extensionId, {"command":"Test Message from webpage"});
+chrome.extension.sendMessage(extensionId, {"command":"pageLoad", "url":document.URL});
 console.log("Test Import");
