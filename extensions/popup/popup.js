@@ -12,7 +12,13 @@ function click(e) {
   //     {code:"document.body.style.backgroundColor='" + e.target.id + "'"});
   // window.close();
   	// meteorWindow.postMessage({"command":"pageLoad", "args": {"url":"http://google.com"}}, "*");
-  	sendPageLoadMessage("http://www.google.com");
+  	// sendPageLoadMessage("http://www.google.com");
+    var settings = {
+      field1: "TODO",
+      field: "another"
+    }
+    console.log(settings);
+    sendSaveMessage("http://www.google.com", settings)
 }
 
 window.onmessage = function(e) {
@@ -29,6 +35,18 @@ sendPageLoadMessage = function(url) {
 		}
 	};
 	meteorWindow.postMessage(objToSend, "*");
+}
+
+// TODO: Send settings to server
+sendSaveMessage = function(url, settings) {
+  var objToSend = {
+    "command": "save",
+    "args": {
+      "url": url,
+      "scheme": settings,
+    }
+  };
+  meteorWindow.postMessage(objToSend, "*");
 }
 
 sendDeltaMessage = function(url, deltas) {
