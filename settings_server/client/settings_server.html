@@ -8,7 +8,27 @@
 </body>
 
 <template name="hello">
-  <h1>Hello World!</h1>
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <a class="navbar-brand" href="#">Chrome Colors</a>
+    </div>
+  </nav><!-- /navbar -->
+
+  <button id="testButton">test
+  </button>
+
+
+    <div class="form-group">
+      <div class="input-group" style="margin-right: 15px; margin-left: 15px">
+        <span class="input-group-addon" style="width: 242px"><div style="float:left">Label</div></span>
+        <input type="text" class="form-control" placeholder="0000ff" name="textInput"/>
+        <span class="input-group-addon"><div id="colorSelector"><div style="background-color: #0000ff; width: 20px; height:20px"></div></div></span>
+      </div>
+    </div>
+
   {{greeting}}
   <input type="button" value="Click" />
 </template>

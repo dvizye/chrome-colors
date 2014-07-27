@@ -8,3 +8,7 @@ autopublish
 insecure
 accounts-google
 accounts-ui
+bootstrap-3
+jquery-ui
+bootstrap-select
+bootstrap-switch
