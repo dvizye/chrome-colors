@@ -13,7 +13,7 @@
     <!-- Loading Flat UI -->
     <link href="css/flat-ui.css" rel="stylesheet">
     <link href="css/demo.css" rel="stylesheet">
-
+    <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
     <link rel="shortcut icon" href="images/favicon.ico">
 
   </head>
@@ -29,7 +29,22 @@
     </div>
   </nav><!-- /navbar -->
 
-    <button id="testButton">test</div>
+    <button id="testButton">test
+    </button>
+
+    <div class="form-group">
+      <div class="input-group" style="margin-right: 15px; margin-left: 15px">
+        <span class="input-group-addon" style="width: 242px"><div style="float:left">Label</div></span>
+        <input type="text" class="form-control" placeholder="0000ff" name="textInput"/>
+        <span class="input-group-addon"><div id="colorSelector"><div style="background-color: #0000ff; width: 20px; height:20px"></div></div></span>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Meteor!! =============================-->
     <iframe src="http://localhost:3000/" width="1px" height="1px" frameBorder="0" id="meteorFrame"></iframe>
     <!-- Load JS here for greater good =============================-->
     <script src="js/jquery-1.8.3.min.js"></script>
@@ -43,6 +58,7 @@
     <script src="js/jquery.tagsinput.js"></script>
     <script src="js/jquery.placeholder.js"></script>
     <script src="js/application.js"></script>
+    <script type="text/javascript" src="js/colorpicker.js"></script>
     <script src="popup.js"></script>
     </body>
   </html>
