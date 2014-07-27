@@ -12,15 +12,63 @@ user = Meteor.user()
 // 	};
 // 	parent.postMessage(objToSend, "*");
 // }
+var schemeName = function(url){
+	return user._id + url
+}
+
+var classNameToHex = function(className) {
+		var rgb = className.split(",");
+		// Strip "bg_"
+		var first = rgb[0];
+		var last = rgb[2];
+		rgb[0] = first.substring(7, first.length);
+		rgb[2] = last.substring(0, last.length-1);
+		var hexString = "#";
+		for (val in rgb){
+			var appendString = parseInt(rgb[val]).toString(16);
+			if (appendString.length == 1) {
+				appendString = "0" + appendString;
+			}
+			hexString += appendString
+		}
+		return hexString;
+}
 
 pageLoad = function(args) {
+	console.log("pageLoad");
 	var url = args.url;
-	// Need base url
-	if (user.urls) {
-			var schemeId = user.urls[url];
-			var scheme = Schemes.find({name: schemeId}).fetch();
+	// Create new schemeId by default
+	var schemeId = schemaName(url);
+	// If user already has scheme for baseUrl, load that instead
+	if (!user.urls) {
+		user[urls] = {
+			url: schemeId
+		};
 	}
-	parent.postMessage(scheme, "*");
+	// Get schemeId stored for the user
+	if (user.urls[url]) {
+		schemeId = user.urls[url];
+	} else {
+		user.urls[url] = schemeId;
+	}
+	// Build map of className --> hex value based on stored scheme
+	// Update scheme if nothing is stored for className
+	var map;
+	for (c in args.colors) {
+		var color = args.colors[c];
+		var match = Schemes.findOne({schemaName: schemeId, key: color});
+		if (match) {
+			map[color] = match.value
+		} else {
+			Schemes.insert({name: schemeId,
+											key: color,
+											value: classNameToHex(color)
+			});
+			map[color] = classNameToHex(color);
+		}
+	}
+	return map;
+	parent.postMessage(map, "*");
 	// console.log(JSON.stringify(user))
 	console.log("Got pageload command " + args["url"]);
 }
