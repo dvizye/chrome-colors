@@ -9,12 +9,9 @@ function click(e) {
   // window.close();
 	var iframe = document.getElementById("meteorFrame");
 	iframe.contentWindow.postMessage("hello there!", "*");
-
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  var divs = document.querySelectorAll('div');
-  for (var i = 0; i < divs.length; i++) {
-    divs[i].addEventListener('click', click);
-  }
-});
+window.onmessage = function(e) {
+	console.log("client received something")
+	console.log(e.data)
+}
