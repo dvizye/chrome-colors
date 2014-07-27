@@ -19,4 +19,8 @@ Template.hello.rendered=function() {
       document.getElementsByName('textInput')[0].placeholder=hex;
     }
   });
+
+  $("#menuButton").click(function() {
+    parent.close();
+  });
 }
