@@ -2,7 +2,7 @@ console = chrome.extension.getBackgroundPage().console;
 
 document.addEventListener('DOMContentLoaded', function() {
     var link = document.getElementById('testButton');
-    // link.addEventListener('click', click);
+    link.addEventListener('click', click);
 });
 
 var meteorWindow = document.getElementById("meteorFrame").contentWindow;
