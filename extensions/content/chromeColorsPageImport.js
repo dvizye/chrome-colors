@@ -40,5 +40,5 @@
 // }
 
 var extensionId = 'fjeoglhhgfkgdfppmimkpakndocenpdd'
-chome.extension.sendMessage(extensionId, "Test Message from webpage");
+chrome.extension.sendMessage(extensionId, {"command":"Test Message from webpage"});
 console.log("Test Import");
