@@ -5,8 +5,7 @@ onload = function() {
 		chrome.extension.sendMessage(extensionId, {"command":"colorList", "args":{}})
 	}
 
-	chrome.extension.sendMessage(extensionId, {"command":"pageLoad", "args":{"url":document.URL}});
-	chrome.extension.sendMessage(extensionId, {"command":"colorList", "args": {"colors":getBgColors()}});
+	chrome.extension.sendMessage(extensionId, {"command":"pageLoad", "args": {"url":document.URL, "colors":getBgColors()}});
 	console.log("Test Import");
 
 }
