@@ -1,3 +1,5 @@
+console = chrome.extension.getBackgroundPage().console;
+
 document.addEventListener('DOMContentLoaded', function() {
     var link = document.getElementById('testButton');
     link.addEventListener('click', click);
@@ -13,8 +15,9 @@ function click(e) {
 }
 
 window.onmessage = function(e) {
-	console.log("client received something");
-	console.log(e.data);
+	if (e.data["command"] == "log") {
+		console.log("From Meteor: " + e.data["args"]["obj"])
+	}
 }
 
 sendPageLoadMessage = function(url) {
