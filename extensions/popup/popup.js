@@ -23,7 +23,7 @@ function click(e) {
 
 window.onmessage = function(e) {
 	if (e.data["command"] == "log") {
-		console.log("From Meteor: " + e.data["args"]["obj"])
+    console.log(JSON.stringify(e));
 	}
 }
 
@@ -60,3 +60,19 @@ sendDeltaMessage = function(url, deltas) {
 
 	meteorWindow.postMessage(objToSend);
 }
+
+chrome.tabs.getSelected(null,function(tab) {
+    var url = tab.url;
+    start = url.indexOf('//')
+    if (start == -1){
+      start = 0
+    }else {
+      start = start + 2
+    }
+
+    end = url.indexOf('/', start);
+    url = url.substring(start, end);
+    window.setTimeout(function() {
+      meteorWindow.postMessage({"command": "url", "args" : {"url" : url} }, "*");
+    }, 250);
+});
