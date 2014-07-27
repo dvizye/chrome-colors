@@ -2,7 +2,7 @@ Template.hello.rendered=function() {
   $('#colorSelector').ColorPicker({
     color: '#0000ff',
     onShow: function (colpkr) {
-      $(colpkr).addClass('test');
+      $(colpkr).fadeIn(300);
       return false;
     },
     onHide: function (colpkr) {

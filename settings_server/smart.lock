@@ -2,17 +2,12 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "bootstrap-3": {},
       "jquery-ui": {},
       "bootstrap-select": {},
-      "bootstrap-switch": {}
+      "bootstrap-switch": {},
+      "bootstrap-3": {}
     },
     "packages": {
-      "bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v3.2.0-1",
-        "commit": "17a63902fc6cf1096c5289d963c66cf28b474727"
-      },
       "jquery-ui": {
         "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
         "tag": "v1.9.2",
@@ -27,6 +22,11 @@
         "git": "https://github.com/TimHeckel/meteor-bootstrap-switch.git",
         "tag": "v0.1.3",
         "commit": "698434e0346ae187acd2aa08b723cfe017fa0311"
+      },
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v3.2.0-1",
+        "commit": "17a63902fc6cf1096c5289d963c66cf28b474727"
       }
     }
   }

@@ -1,3 +1,5 @@
+Meteor.subscribe('schemes');
+
 var console = {}
 console.log = function(obj) {
 	var objToSend = {
@@ -10,11 +12,20 @@ console.log = function(obj) {
 }
 
 pageLoad = function(args) {
+	var user = Meteor.user();
+	var url = args.url;
+	// Need base url
+	if (user.urls) {
+			var schemeId = user.urls[url];
+			var scheme = Schemes.find({name: schemeId}).fetch();
+	}
+	parent.postMessage(scheme, "*")
+	// console.log(JSON.stringify(user))
 	console.log("Got pageload command " + args["url"])
 }
 
 commands = {
-	"pageLoad":pageLoad
+	"pageLoad":pageLoad,
 }
 
 
