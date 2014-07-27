@@ -1,3 +1,5 @@
+Meteor.subscribe("schemes");
+
 var console = {}
 console.log = function(obj) {
 	var objToSend = {
@@ -10,6 +12,8 @@ console.log = function(obj) {
 }
 
 pageLoad = function(args) {
+	var user = Users.findOne()
+	console.log(user)
 	console.log("Got pageload command " + args["url"])
 }
 
