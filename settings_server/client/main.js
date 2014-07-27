@@ -1,5 +1,5 @@
 Template.hello.rendered=function() {
-  $('#colorSelector').ColorPicker({
+  $('.colorSelector').ColorPicker({
     color: '#0000ff',
     onShow: function (colpkr) {
       $(colpkr).fadeIn(50);
@@ -15,7 +15,8 @@ Template.hello.rendered=function() {
       return false;
     },
     onChange: function (hsb, hex, rgb) {
-      $('#colorSelector div').css('backgroundColor', '#' + hex);
+      console.log($(this));
+      $(this).children().css('backgroundColor', '#' + hex);
       document.getElementsByName('textInput')[0].placeholder=hex;
     }
   });
@@ -24,3 +25,9 @@ Template.hello.rendered=function() {
     parent.close();
   });
 }
+
+Template.hello.helpers({
+  colors : function() {
+    return [{key: "test", value: "00FF22"}, {key: "other", value: "00FF22"}];
+  }
+})
