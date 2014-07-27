@@ -15,7 +15,7 @@ console.log("hello", JSON.stringify(user));
 // }
 var schemeName = function(url){
 	console.log(JSON.stringify(user));
-	return user._id + url
+	return url
 }
 
 var classNameToHex = function(className) {
@@ -44,7 +44,7 @@ pageLoad = function(args) {
 	// If user already has scheme for baseUrl, load that instead
 	if (!user["urls"]) {
 		user["urls"] = {
-			url: schemeId
+			urls: schemeId
 		};
 	}
 	// Get schemeId stored for the user
@@ -55,7 +55,7 @@ pageLoad = function(args) {
 	}
 	// Build map of className --> hex value based on stored scheme
 	// Update scheme if nothing is stored for className
-	var map;
+	var map = {};
 	for (c in args.colors) {
 		var color = args.colors[c];
 		var match = Schemes.findOne({schemeName: schemeId, key: color});
