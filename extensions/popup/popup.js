@@ -23,7 +23,7 @@ function click(e) {
 
 window.onmessage = function(e) {
 	if (e.data["command"] == "log") {
-    console.log(JSON.stringify(e));
+    console.log(JSON.stringify(e.data));
 	}
 }
 
