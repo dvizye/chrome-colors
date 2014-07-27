@@ -6,4 +6,8 @@
 standard-app-packages
 insecure
 accounts-ui
+jquery-ui
+bootstrap-select
+bootstrap-switch
 accounts-password
+bootstrap-3
