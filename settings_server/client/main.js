@@ -20,7 +20,7 @@ Template.hello.rendered=function() {
     onChange: function (hsb, hex, rgb) {
       $("#colorActive div").css('backgroundColor', '#' + hex);
       $("#colorActive").parent().parent().children("#textInput").attr('placeholder', "#" + hex);
-      parent.postMessage("hi", "*");
+      parent.postMessage({"command":"colorChange","args":{"className":"bg_rgb(255,255,255)","color":hex}}, "*");
     }
   });
 
