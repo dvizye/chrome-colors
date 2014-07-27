@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 var meteorWindow = document.getElementById("meteorFrame").contentWindow;
 
-
 function click(e) {
   // chrome.tabs.executeScript(null,
   //     {code:"document.body.style.backgroundColor='" + e.target.id + "'"});

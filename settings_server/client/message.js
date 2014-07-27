@@ -49,9 +49,14 @@ save = function(args) {
 	console.log("Got save command");
 }
 
+colorList = function(args) {
+	
+}
+
 commands = {
 	"pageLoad":pageLoad,
 	"save":save,
+	"colorList":colorList,
 }
 
 
