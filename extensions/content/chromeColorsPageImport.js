@@ -90,7 +90,5 @@ contentMessageHandler = function (ev) {
 	console.log("Content Received: " + JSON.stringify(ev))
 }
 
+onload();
 chrome.runtime.onMessage.addListener(contentMessageHandler);
-
-
-

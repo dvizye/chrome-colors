@@ -1,6 +1,7 @@
 Schemes = Meteor.subscribe('schemes');
 
 user = Meteor.user()
+console.log("hello", JSON.stringify(user));
 
 // var console = {}
 // console.log = function(obj) {
@@ -13,6 +14,7 @@ user = Meteor.user()
 // 	parent.postMessage(objToSend, "*");
 // }
 var schemeName = function(url){
+	console.log(JSON.stringify(user));
 	return user._id + url
 }
 
@@ -38,10 +40,10 @@ pageLoad = function(args) {
 	console.log("pageLoad");
 	var url = args.url;
 	// Create new schemeId by default
-	var schemeId = schemaName(url);
+	var schemeId = schemeName(url);
 	// If user already has scheme for baseUrl, load that instead
-	if (!user.urls) {
-		user[urls] = {
+	if (!user["urls"]) {
+		user["urls"] = {
 			url: schemeId
 		};
 	}
@@ -56,7 +58,7 @@ pageLoad = function(args) {
 	var map;
 	for (c in args.colors) {
 		var color = args.colors[c];
-		var match = Schemes.findOne({schemaName: schemeId, key: color});
+		var match = Schemes.findOne({schemeName: schemeId, key: color});
 		if (match) {
 			map[color] = match.value
 		} else {
