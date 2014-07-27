@@ -41,6 +41,7 @@ sendDeltaMessage = function(url, deltas) {
 	};
 
 	meteorWindow.postMessage(objToSend);
+}
 
 $('#colorSelector').ColorPicker({
 	color: '#0000ff',
