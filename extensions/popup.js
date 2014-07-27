@@ -11,7 +11,8 @@ function click(e) {
   // chrome.tabs.executeScript(null,
   //     {code:"document.body.style.backgroundColor='" + e.target.id + "'"});
   // window.close();
-  	meteorWindow.postMessage({"command":"pageLoad", "args": {"url":"http://google.com"}}, "*");
+  	// meteorWindow.postMessage({"command":"pageLoad", "args": {"url":"http://google.com"}}, "*");
+  	sendPageLoadMessage("http://www.google.com");
 }
 
 window.onmessage = function(e) {
