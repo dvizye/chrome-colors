@@ -5,9 +5,19 @@ onload = function() {
 		chrome.extension.sendMessage(extensionId, {"command":"colorList", "args":{}})
 	}
 
-	chrome.extension.sendMessage(extensionId, {"command":"pageLoad", "args": {"url":document.URL, "colors":getBgColors()}});
-	console.log("Test Import");
+	url = document.URL
+	start = url.indexOf('//')
+	if (start == -1){
+		start = 0
+	}else {
+		start = start + 2
+	}
 
+	end = url.indexOf('/', start)
+	url = url.substring(start, end)
+
+	chrome.extension.sendMessage(extensionId, {"command":"pageLoad", "args": {"url":url, "colors":getBgColors()}});
+	console.log("Test Import");
 }
 
 // Return all of the background-color values
@@ -50,9 +60,37 @@ var getBgColors = function(){
   var ret = Object.getOwnPropertyNames(colors).sort(function (a, b) {
     return colors[b] - colors[a];
   });
-  return ret
+  return ret;
 }
 
+setColor = function(colorClass, newColor) {
+	elList = document.getElementByClassName(colorClass)
+	for (idx = 0; idx < elList.length; idx++) {
+		el = elList[idx];
+		if (colorClass.indexOf("bg_") == 0) {
+			el.style['background-color'] = newColor;
+		} else if (colorClass.indexOf("fg_") == 0) {
+			el.style['color'] = newColor
+		}
+	}
+}
+
+setColors = function(map) {
+	keys = Object.keys(map)
+	for (key in keys) {
+		setColors(key, map[key])
+	}
+}
+
+commands = {
+	"setColors" : setColors
+}
+
+contentMessageHandler = function (ev) {
+	console.log("Content Received: " + JSON.stringify(ev))
+}
+
+chrome.runtime.onMessage.addListener(contentMessageHandler);
 
 
 
