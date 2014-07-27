@@ -33,8 +33,8 @@
       <div class="input-group" style="margin-right: 15px; margin-left: 15px">
         <span class="input-group-addon" style="padding-left: 15px; padding-right: 15px"><div style="float:left">1</div></span>
         <span class="input-group-addon" style="width: 190px; padding: 0; border: 0;"><div style="float:left"><input type="text" class="form-control" value={{key}} name="colorName"/></div></span>
-        <input type="text" class="form-control" placeholder={{value}} style="text-align: center" name="textInput" disabled/>
-        <span class="input-group-addon"><div class="colorSelector"><div style="background-color: #{{value}}; width: 20px; height:20px"></div></div></span>
+        <input type="text" class="form-control" placeholder="#{{value}}" style="text-align: center" id="textInput" disabled/>
+        <span class="input-group-addon"><div class="colorSelector" id={{id}}><div id={{id}} style="background-color: #{{value}}; width: 20px; height:20px"></div></div></span>
       </div>
     </div>
   {{/each}}
