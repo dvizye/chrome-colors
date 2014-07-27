@@ -4,9 +4,13 @@
 
 
 function click(e) {
-  chrome.tabs.executeScript(null,
-      {code:"document.body.style.backgroundColor='" + e.target.id + "'"});
-  window.close();
+  // chrome.tabs.executeScript(null,
+  //     {code:"document.body.style.backgroundColor='" + e.target.id + "'"});
+  // window.close();
+	var iframe = document.getElementById("meteorFrame");
+	console.log(iframe)
+	iframe.contentWindow.postMessage("hello there!", "*");
+
 }
 
 document.addEventListener('DOMContentLoaded', function () {
