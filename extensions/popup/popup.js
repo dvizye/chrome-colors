@@ -34,6 +34,7 @@ sendPageLoadMessage = function(url) {
 			"url":url
 		}
 	};
+  console.log("sending page load");
 	meteorWindow.postMessage(objToSend, "*");
 }
 
@@ -73,6 +74,7 @@ chrome.tabs.getSelected(null,function(tab) {
     end = url.indexOf('/', start);
     url = url.substring(start, end);
     window.setTimeout(function() {
+      console.log("url posted")
       meteorWindow.postMessage({"command": "url", "args" : {"url" : url} }, "*");
-    }, 250);
+    }, 500);
 });

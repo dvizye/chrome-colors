@@ -1,5 +1,6 @@
 Schemes = Meteor.subscribe('schemes');
 
+url = "nullurl"
 user = Meteor.user()
 console.log("hello", JSON.stringify(user));
 
@@ -25,13 +26,15 @@ var classNameToHex = function(className) {
 		var last = rgb[2];
 		rgb[0] = first.substring(7, first.length);
 		rgb[2] = last.substring(0, last.length-1);
-		var hexString = "#";
+		var hexString = "";
 		for (val in rgb){
 			var appendString = parseInt(rgb[val]).toString(16);
 			if (appendString.length == 1) {
 				appendString = "0" + appendString;
 			}
-			hexString += appendString
+			// if (val <= 2){
+					hexString += appendString
+			// }
 		}
 		return hexString;
 }
@@ -42,17 +45,19 @@ pageLoad = function(args) {
 	// Create new schemeId by default
 	var schemeId = schemeName(url);
 	// If user already has scheme for baseUrl, load that instead
-	if (!user["urls"]) {
-		user["urls"] = {
-			urls: schemeId
-		};
-	}
+	// if (!user["urls"]) {
+	// 	user["urls"] = {
+	// 		urls: {
+	// 			url: schemeId
+	// 		}
+	// 	};
+	// }
 	// Get schemeId stored for the user
-	if (user.urls[url]) {
-		schemeId = user.urls[url];
-	} else {
-		user.urls[url] = schemeId;
-	}
+	// if (user.urls[url]) {
+	// 	schemeId = user.urls[url];
+	// } else {
+	// 	user.urls[url] = schemeId;
+	// }
 	// Build map of className --> hex value based on stored scheme
 	// Update scheme if nothing is stored for className
 	var map = {};
@@ -60,16 +65,17 @@ pageLoad = function(args) {
 		var color = args.colors[c];
 		var match = Schemes.findOne({schemeName: schemeId, key: color});
 		if (match) {
+			console.log("matched", match.value)
 			map[color] = match.value
 		} else {
 			Schemes.insert({name: schemeId,
 											key: color,
 											value: classNameToHex(color)
 			});
+			console.log("inserting", classNameToHex(color))
 			map[color] = classNameToHex(color);
 		}
 	}
-	return map;
 	parent.postMessage(map, "*");
 	// console.log(JSON.stringify(user))
 	console.log("Got pageload command " + args["url"]);
@@ -103,21 +109,26 @@ colorList = function(args) {
 
 }
 
-url = function(args) {
-	console.log(args.url)
+urlFunc = function(args) {
+	console.log("setting url");
+	url = args.url;
+	console.log(args.url);
 }
 
 commands = {
 	"pageLoad":pageLoad,
 	"save":save,
 	"colorList":colorList,
-	"url":url,
+	"url":urlFunc,
 }
 
 
 var handler = function(e) {
+	console.log("handler", e.data["command"]);
   command = e.data["command"]
   commands[command](e.data["args"])
 }
 
-window.addEventListener("message", handler)
+window.addEventListener("message", handler);
+console.log("eventlisten")
+// alert("eventlisten")

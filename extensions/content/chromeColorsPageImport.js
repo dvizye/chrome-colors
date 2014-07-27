@@ -1,6 +1,7 @@
-var extensionId = 'edglniekklmjgfgoanioecobdgaogjdj'
+var extensionId = 'iilekcdmhflppfdganhnchlkanhbaneo'
 
 onload = function() {
+	console.log("onload");
 	postColorMessage = function (colorList) {
 		chrome.extension.sendMessage(extensionId, {"command":"colorList", "args":{}})
 	}

@@ -29,8 +29,37 @@ Template.hello.rendered=function() {
   });
 }
 
+// +Template.colors.helpers({
+// +  colors: function() {
+// +    ["a", "b"]
+// +  };
+// +  // colors: function() {
+// +  //   if (user && url != "none") {
+// +  //       var schemeId = user.urls[url]
+// +  //       return Scheme.find({schemeName: schemeId});
+// +  //   }
+// +  //   return [];
+// +  // }
+// +});
+
+var buttons = function() {
+  // if (user && user["urls"] && user.urls[url] != "null") {
+    var url = "www.facebook.com"
+    console.log("cool", url);
+
+    // var schemeId = user.urls["twitter.com"];
+    console.log("i found", Schemes.find({name: url}).fetch())
+    return Schemes.find({name: url});
+  // } else {
+    // console.log("ok", url);
+    // return [];
+  // }
+}
+
 Template.hello.helpers({
   colors : function() {
-    return [{key: "test", value: "00FF22", id: "5"}, {key: "other", value: "00FF22", id: "6"}];
+    return buttons();
+    // return
+    // return [{key: "test", value: "00FF22", id: "5"}, {key: "other", value: "00FF22", id: "6"}];
   }
 })
