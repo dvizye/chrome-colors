@@ -19,9 +19,6 @@ commands = {
 
 
 var handler = function(e) {
-  // console.log("received message " + e.data["command"])
-
-  // parent.postMessage("hi too", "*");
   command = e.data["command"]
   commands[command](e.data["args"])
 }
